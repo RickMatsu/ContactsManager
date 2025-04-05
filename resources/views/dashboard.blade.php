@@ -35,8 +35,8 @@
                                     <td class="px-6 py-4">{{ $contact->email }}</td>
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-2">
-                                            <a href="{{ route('contacts.show', $contact) }}" class="text-blue-400 hover:underline">Ver</a>
-                                            <a href="{{ route('contacts.edit', $contact) }}" class="text-yellow-400 hover:underline">Editar</a>
+                                            <a href="{{ route('contacts.show', $contact) }}" class="text-blue-400 hover:underline">Ver  </a>
+                                            <a href="{{ route('contacts.edit', $contact) }}" class="text-yellow-400 hover:underline">Editar  </a>
                                             <form action="{{ route('contacts.destroy', $contact) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
                                                 @csrf
                                                 @method('DELETE')

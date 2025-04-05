@@ -29,8 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [ContactController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [ContactController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {    
     Route::resource('contacts', ContactController::class);
 });
 
