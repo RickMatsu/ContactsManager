@@ -30,9 +30,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'contact' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
+            'name' => 'required|string|min:6',
+            'contact' => 'required|digits:9|unique:contacts,contact,',
+            'email' => 'required|email|unique:contacts,email,',
         ]);
     
         Contact::create($validated);
@@ -63,8 +63,8 @@ class ContactController extends Controller
     {
         // Validação
         $validated = $request->validate([
-            'name' => 'required|string|min:5',
-            'contact' => 'required|string|max:20' . $contact->id,
+            'name' => 'required|string|min:6',
+            'contact' => 'required|digits:9|unique:contacts,contact,' . $contact->id,
             'email' => 'required|email|unique:contacts,email,' . $contact->id,
         ]);
         
